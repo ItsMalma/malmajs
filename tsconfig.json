@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"moduleDetection": "force",
+		"esModuleInterop": true,
+		"declaration": true,
+
+		"strict": true,
+
+		"lib": ["ESNext"],
+		"skipLibCheck": true,
+
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true
+	},
+
+	"tsc-alias": {
+		"resolveFullPaths": true
+	}
+}

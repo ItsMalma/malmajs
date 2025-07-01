@@ -1,0 +1,16 @@
+{
+	"extends": "../../tsconfig.json",
+
+	"compilerOptions": {
+		"types": ["reflect-metadata"],
+
+		"baseUrl": "./src",
+		"paths": {
+			"#/*": ["./*"]
+		},
+
+		"rootDir": "./src"
+	},
+
+	"include": ["./src"]
+}

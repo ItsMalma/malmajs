@@ -1,0 +1,60 @@
+{
+	"name": "@malmajs/express-decorator",
+	"version": "0.0.1",
+	"description": "Decorator to routing express app with class.",
+	"keywords": [
+		"malmajs",
+		"express",
+		"decorator",
+		"routing"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ItsMalma/malmajs",
+		"directory": "packages/express-decorator"
+	},
+	"bugs": {
+		"url": "https://github.com/ItsMalma/malmajs/issues"
+	},
+	"author": {
+		"name": "Adam Akmal Madani",
+		"email": "adamakmal789@gmail.com",
+		"url": "https://github.com/ItsMalma"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/ItsMalma/malmajs",
+	"private": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/esm/index.js",
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/esm/index.d.ts",
+				"default": "./dist/esm/index.js"
+			},
+			"require": {
+				"types": "./dist/cjs/index.d.ts",
+				"default": "./dist/cjs/index.js"
+			}
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build:cjs": "tsc -p tsconfig.cjs.json && tsc-alias -p tsconfig.cjs.json",
+		"build:esm": "tsc -p tsconfig.esm.json && tsc-alias -p tsconfig.esm.json",
+		"build": "pnpm run build:cjs && pnpm run build:esm"
+	},
+	"peerDependencies": {
+		"express": "^5.0.0",
+		"reflect-metadata": "^0.2.2"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"@types/express-serve-static-core": "^5.0.6"
+	}
+}
