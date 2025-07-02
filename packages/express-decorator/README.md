@@ -31,10 +31,10 @@ Enable decorators in `tsconfig.json`:
 
 ```json
 {
-	"compilerOptions": {
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true
-	}
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
 }
 ```
 
@@ -97,13 +97,13 @@ class LoggerMiddleware extends Middleware {
 ```ts
 // via controller
 @Controller('/example', [new LoggerMiddleware()])
-class ExampleMiddleware {}
+class ExampleController {}
 
 // via handler
 @Controller('/example')
-class ExampleMiddleware {
-	@Get('', [new LoggerMiddleware()])
-	index(req: Request, res: Response) {
+class ExampleController {
+  @Get('', [new LoggerMiddleware()])
+  index(req: Request, res: Response) {
     res.send('<h1>Example!</h1>');
   }
 }
