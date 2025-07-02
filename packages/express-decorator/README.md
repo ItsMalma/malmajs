@@ -52,6 +52,16 @@ const app = express();
 applyExpressDecorator(app);
 ```
 
+### Integrate with Dependency Injection (example: Inversify)
+
+```ts
+import { Container } from 'inversify';
+
+const container = new Container({ autoBind: true });
+
+applyExpressDecorator(app, container);
+```
+
 ### Controller
 
 ```ts
@@ -76,6 +86,9 @@ class ExampleController {
 
 ```ts
 app.useControllers(new UserController());
+
+// or with dependency injection:
+app.useControllers(UserController);
 ```
 
 ### Request Middleware
@@ -98,6 +111,9 @@ class LoggerMiddleware extends Middleware {
 // via controller
 @Controller('/example', [new LoggerMiddleware()])
 class ExampleController {}
+// or using dependency injection
+@Controller('/example', [LoggerMiddleware])
+class ExampleController {}
 
 // via handler
 @Controller('/example')
@@ -107,9 +123,19 @@ class ExampleController {
     res.send('<h1>Example!</h1>');
   }
 }
+// or using dependency injection
+@Controller('/example')
+class ExampleController {
+  @Get('', [LoggerMiddleware])
+  index(req: Request, res: Response) {
+    res.send('<h1>Example!</h1>');
+  }
+}
 
 // via app
 app.useMiddlewares(new LoggerMiddleware());
+// or using dependency injection
+app.useMiddlewares(LoggerMiddleware)
 ```
 
 ### Error Middleware
@@ -130,6 +156,8 @@ class MyErrorMiddleware extends ErrorMiddleware {
 
 ```ts
 app.useErrorMiddleware(new MyErrorMiddleware());
+// or using dependency injection
+app.useErrorMiddleware(MyErrorMiddleware);
 ```
 
 ### Use Non-Class Request Middleware
