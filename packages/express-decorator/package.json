@@ -1,6 +1,6 @@
 {
 	"name": "@malmajs/express-decorator",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Decorator to routing express app with class.",
 	"keywords": [
 		"malmajs",
@@ -50,11 +50,11 @@
 		"build": "pnpm run build:cjs && pnpm run build:esm"
 	},
 	"peerDependencies": {
-		"express": "^5.0.0",
-		"reflect-metadata": "^0.2.2"
+		"express": "5.0.0",
+		"reflect-metadata": "0.2.2"
 	},
 	"devDependencies": {
-		"@types/express": "^5.0.3",
-		"@types/express-serve-static-core": "^5.0.6"
+		"@types/express": "5.0.3",
+		"@types/express-serve-static-core": "5.0.6"
 	}
 }
